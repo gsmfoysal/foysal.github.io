@@ -32,6 +32,8 @@ tr.out td.l{color:var(--red)}
 .nm{flex:1;font-weight:600;min-width:0;overflow-wrap:anywhere}
 .val{color:var(--mute);font-variant-numeric:tabular-nums}
 .stars{color:var(--gold)}
+input[type=number]{-moz-appearance:textfield;appearance:textfield}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 input,select{background:#1b0b3a;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:6px;width:72px;font-size:14px}
 input.name{width:150px}input.wide{width:100%;max-width:340px}
 .grid2{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
@@ -56,14 +58,21 @@ background:var(--surface);border-color:var(--line);color:var(--ink);font-family:
 .rbk .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--c,var(--elixir))}
 .rbk .legend span.x::before{background:var(--out)}
 .rbk .bracket{overflow-x:auto}
-.rbk .bk{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr)) minmax(170px,1.1fr);gap:18px 14px;min-width:860px;align-items:start}
+.rbk .bk{display:grid;grid-template-columns:repeat(4,minmax(170px,1fr)) minmax(160px,1.1fr);gap:18px 14px;min-width:0;align-items:start}
 .rbk .bcol{display:grid;gap:4px;align-content:start}
 .rbk .bcol h3{font-size:.95rem;margin-bottom:4px;display:flex;justify-content:space-between;gap:6px}
 .rbk .bcol h3 small{font-family:"Nunito Sans",sans-serif;font-weight:700;color:var(--muted);font-size:.75rem}
-.rbk .bslot{display:flex;justify-content:space-between;gap:6px;background:var(--sunk);border:1px solid var(--line);border-left:4px solid var(--elixir);border-radius:7px;padding:4px 8px;font-size:.83rem;font-weight:700}
+.rbk .bslot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 6px;background:var(--sunk);border:1px solid var(--line);border-left:4px solid var(--elixir);border-radius:7px;padding:4px 8px;font-size:.83rem;font-weight:700}
 .rbk .bslot.x span{color:var(--out);font-weight:800}
 .rbk .bslot.dz{background:var(--out-soft);border-color:var(--out)}
 .rbk .bslot em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}
+.rbk .bsub2{flex-basis:100%;display:flex;justify-content:space-between;gap:10px;font-size:.74rem;font-weight:700;color:var(--muted)}
+.rbk .bslot.nw{flex-wrap:nowrap;font-size:.78rem}
+.rbk .bslot.nw>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rbk .bslot.nw em{white-space:nowrap;font-size:.74rem}
+.rbk .ks{flex-wrap:wrap}
+.rbk .ksc{flex-basis:100%;padding-left:30px;font-size:.72rem;color:var(--muted);margin-top:-2px}
+.rbk .ks.win .ksc{color:var(--gold)}
 .rbk .km{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:6px;display:grid;gap:3px;margin-bottom:6px}
 .rbk .km.kf{border-color:var(--gold)}
 .rbk .kl{font-size:.6rem;font-weight:800;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
@@ -80,7 +89,75 @@ background:var(--surface);border-color:var(--line);color:var(--ink);font-family:
 .rbk .prize.m1{border-color:var(--m1);background:var(--m1-soft)}.rbk .prize.m1 .pl{color:var(--m1)}
 .rbk .prize.m2{border-color:var(--m2);background:var(--m2-soft)}.rbk .prize.m2 .pl{color:var(--m2)}
 .rbk .prize.m3{border-color:var(--m3);background:var(--m3-soft)}.rbk .prize.m3 .pl{color:var(--m3)}
-@media (max-width:640px){.rbk .bk>div{grid-row:auto!important;grid-column:auto!important}.rbk .bk{grid-template-columns:1fr;min-width:0;gap:16px}.rbk .bk>div:last-child{order:-1}}
+@media (max-width:980px){.rbk .bk>div{grid-row:auto!important;grid-column:auto!important}.rbk .bk{grid-template-columns:1fr;min-width:0;gap:16px}.rbk .bk>div:last-child{order:-1}}
+:root{--sunk:#200e3d;--surface:#26114a;--in:#6fe3a5;--in-soft:#12402f;--out-soft:#4a1630;--gold-soft:#3d300a;--m1:#ffd23f;--m1-soft:#4a3b0c;--m2:#d3dbe5;--m2-soft:#3a3550;--m3:#e6a06a;--m3-soft:#4a2a1e}
+.ph{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.ph h2{margin:0;font-family:"Lilita One","Nunito Sans",sans-serif;font-weight:400;text-transform:uppercase;font-size:1.4rem}
+.chip{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:99px}
+.chip.live{background:var(--gold-soft);color:var(--gold)}
+.chip.final{background:var(--in-soft);color:var(--in)}
+.tag{font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:5px;margin-left:6px;vertical-align:middle;background:var(--in-soft);color:var(--in)}
+.tag.c{background:var(--gold);color:#1b0b3a}
+.tag.t3{background:var(--m3-soft);color:var(--m3)}
+td.rank{width:36px;color:var(--mute)}
+tr.top1 td.rank{color:var(--gold)}
+td.stars{color:var(--gold);letter-spacing:.05em;white-space:nowrap}
+tr.danger td{background:var(--out-soft)}
+tr.danger td.rank{color:var(--red);box-shadow:inset 3px 0 0 var(--red)}
+.dzkey{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--red);margin:6px 0 10px;font-weight:700}
+.dzkey i{width:12px;height:12px;border-radius:3px;background:var(--out-soft);border:2px solid var(--red);display:inline-block}
+.kg3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}
+.kc{display:grid;gap:10px;align-content:start;margin-top:14px}
+.kc h3{margin:0;font-family:"Lilita One","Nunito Sans",sans-serif;font-weight:400;font-size:1rem;color:var(--gold);text-transform:uppercase}
+.pz{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pz2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.prize{display:grid;gap:4px;text-align:center;border:2px solid var(--line);border-radius:12px;padding:12px 10px}
+.prize .pl{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.prize b{font-size:1.05rem;line-height:1.25}
+.prize .pw{font-size:.85rem;color:var(--mute)}
+.prize.m1{border-color:var(--m1);background:var(--m1-soft)}.prize.m1 .pl{color:var(--m1)}
+.prize.m2{border-color:var(--m2);background:var(--m2-soft)}.prize.m2 .pl{color:var(--m2)}
+.prize.m3{border-color:var(--m3);background:var(--m3-soft)}.prize.m3 .pl{color:var(--m3)}
+.km{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:8px;display:grid;gap:4px;align-content:start}
+.km.kf{border-color:var(--gold)}
+.kl{font-size:.68rem;font-weight:800;letter-spacing:.1em;color:var(--mute);text-transform:uppercase}
+.ks{display:flex;flex-wrap:wrap;align-items:center;gap:8px;width:100%;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:6px 8px;font-weight:700;font-size:.88rem}
+.ks .sd{font-size:.7rem;color:var(--mute);min-width:22px}
+.ks .kn{flex:1;min-width:0;overflow-wrap:anywhere}
+.ks .ck{color:var(--gold);font-weight:800}
+.ks.win{border-color:var(--gold);background:var(--gold-soft)}
+.ks.lose{opacity:.55}
+.ks.tbd{color:var(--mute)}
+.ks .ksc{flex-basis:100%;padding-left:30px;font-size:.74rem;color:var(--mute);margin-top:-2px}
+.ks.win .ksc{color:var(--gold)}
+.ksi{margin:0 0 6px;justify-content:flex-start}
+.champ{text-align:center;padding:14px;border:2px solid var(--gold);border-radius:14px;background:var(--m1-soft);margin-bottom:12px}
+.champ .l{display:block;letter-spacing:.14em;font-size:.72rem;color:var(--gold);font-weight:800;text-transform:uppercase}
+.champ .n{font-family:"Lilita One","Nunito Sans",sans-serif;font-size:1.7rem}
+@media (max-width:640px){.pz{grid-template-columns:1fr}}
+.wrap.wide{max-width:1400px}
+.hl .ks{background:#34187099;border-color:#6a46b8;padding:10px 12px;border-left:4px solid var(--violet)}
+.hl .ks .kn{font-size:1.06rem;font-weight:800;color:#fff}
+.hl .ks.win{background:var(--gold-soft);border-color:var(--gold);border-left-color:var(--gold)}
+.hl .ks.win .kn{color:var(--gold)}
+.hl .ks .sd{font-size:.78rem;color:var(--violet)}
+.hl .km{padding:10px;border-color:#6a46b8}
+.hl .km.kf{border-color:var(--gold)}
+.hl .stbl td.l{font-size:1.05rem;font-weight:800;color:#fff}
+.hl .stbl tr.out td.l{color:var(--red)}
+.hl .prize b{font-size:1.25rem;color:#fff}
+.hl .champ .n{font-size:2rem}
+.tp2{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:12px;align-items:start;margin:10px 0}
+@media (max-width:640px){.tp2{grid-template-columns:1fr}}
+.ksi2{display:flex;align-items:center;gap:6px;margin:0 0 8px 2px}
+.ksi2 b{font-weight:400;color:var(--mute);font-size:.85rem}
+.ksi2 input{width:58px;text-align:center}
+.ksi2 input.tm{width:76px}
+.pitbl{min-width:1040px}
+.pitbl input{width:100%;min-width:110px}
+.pitbl input.name{width:100%;min-width:150px}
+textarea{background:#1b0b3a;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:8px;width:100%;max-width:560px;font:inherit;font-size:14px}
+a.btn{text-decoration:none;color:var(--text);display:inline-block}
 .hint{color:var(--mute);font-size:13px;margin-top:12px}
 .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
 .btn{background:#34187080;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:7px 12px;font-size:13px;cursor:pointer}
@@ -96,23 +173,23 @@ background:var(--surface);border-color:var(--line);color:var(--ink);font-family:
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="wrap">
   <h1 id="head"></h1>
   <div class="live" id="live"><b>● LIVE</b>RESULTS UPDATE AUTOMATICALLY AS EACH SCORE IS ENTERED.</div>
   <div class="tabs" id="tabs"></div>
   <div class="panel" id="view"></div>
   <p class="hint" id="auth"></p>
 </div>
-<script type="application/json" id="snap">{"at":1793692637342,"state":{"cutVote":2,"groups":[{"id":"g23","name":"Group A"},{"id":"g24","name":"Group B"}],"nid":27,"players":[{"g":"g23","id":"p11","n":"FOYSAL th18","ad":100,"as":3,"at":179,"f1d":100,"f1s":3,"f1t":176,"f2d":100,"f2s":3,"f2t":175,"f3d":100,"f3s":3,"f3t":175,"fs":3,"qd":100,"qs":3,"qt":165,"r1d":100,"r1s":3,"r1v":550,"r2d":100,"r2s":3,"r2v":555,"w":0},{"g":"g24","id":"p12","n":"FOYSAL Jr","ad":100,"as":3,"at":175,"f1d":100,"f1s":3,"f1t":170,"f2d":100,"f2s":3,"f2t":172,"f3d":100,"f3s":3,"f3t":170,"fs":1,"qd":100,"qs":3,"qt":173,"r1d":100,"r1s":3,"r1v":555,"r2d":100,"r2s":3,"r2v":554,"w":0},{"g":"g23","id":"p13","n":"FOYSAL Lite","ad":100,"as":3,"at":178,"bd":100,"bs":3,"bt":165,"qd":100,"qs":3,"qt":170,"r1s":3,"r1v":560,"r2d":100,"r2s":3,"r2v":555,"w":0},{"g":"g24","id":"p14","n":"FOYSAL Mini","qd":100,"qs":3,"qt":179,"r1d":100,"r1s":3,"r1v":510,"r2d":100,"r2s":3,"r2v":564,"w":0},{"g":"g23","id":"p15","n":"FOYSAL th12","qd":99,"qs":2,"qt":180,"r1d":100,"r1s":3,"r1v":490,"r2d":100,"r2s":3,"r2v":550,"w":0},{"g":"g24","id":"p16","n":"FARNAZ","ad":99,"as":2,"at":155,"bd":100,"bs":3,"bt":160,"qd":100,"qs":3,"qt":175,"r1d":100,"r1s":3,"r1v":556,"r2d":100,"r2s":3,"r2v":556,"w":0},{"g":"g23","id":"p17","n":"OSHIR","qd":100,"qs":3,"qt":180,"r1d":100,"r1s":3,"r1v":489,"r2d":100,"r2s":3,"r2v":540,"w":0},{"g":"g24","id":"p18","n":"OSHIR Jr","qd":99,"qs":2,"qt":180,"r1d":99,"r1s":2,"r1v":485,"r2d":100,"r2s":3,"r2v":543,"w":0},{"g":"g23","id":"p19","n":"CHITTAGONG","qd":95,"qs":2,"qt":180,"r1d":100,"r1s":3,"r1v":440,"r2d":100,"r2s":3,"r2v":545,"w":0},{"g":"g24","id":"p20","n":"Mohammad Yeamin","qd":98,"qs":2,"qt":180,"r1d":93,"r1s":2,"r1v":500,"r2d":100,"r2s":3,"r2v":539,"w":0},{"g":"g24","id":"p25","n":"Yeamin Mohammad","r1d":89,"r1s":2,"r1v":423,"r2d":100,"r2s":3,"r2v":540},{"g":"g23","id":"p26","n":"Noman MD","r1d":63,"r1s":2,"r1v":422,"r2d":100,"r2s":3,"r2v":520}],"title":"Chatga Vikings "}}</script>
+<script type="application/json" id="snap">{"at":1793774479401,"state":{"cutVote":2,"groups":[{"id":"g23","name":"Group A"},{"id":"g24","name":"Group B"}],"nid":29,"pairs":null,"players":[{"g":"g23","id":"p11","n":"FOYSAL th18","ad":100,"as":3,"at":179,"f1d":100,"f1s":3,"f1t":176,"f2d":100,"f2s":3,"f2t":175,"f3d":100,"f3s":3,"f3t":175,"fs":3,"qd":100,"qs":3,"qt":165,"r1d":100,"r1s":3,"r1v":550,"r2d":100,"r2s":3,"r2v":555,"w":0},{"g":"g24","id":"p12","n":"FOYSAL Jr","ad":100,"as":3,"at":175,"f1d":100,"f1s":3,"f1t":170,"f2d":100,"f2s":3,"f2t":172,"f3d":100,"f3s":3,"f3t":170,"fs":1,"qd":100,"qs":3,"qt":173,"r1d":100,"r1s":3,"r1v":555,"r2d":100,"r2s":3,"r2v":554,"w":0},{"g":"g23","id":"p13","n":"FOYSAL Lite","ad":100,"as":3,"at":178,"bd":100,"bs":3,"bt":165,"qd":100,"qs":3,"qt":170,"r1d":100,"r1s":3,"r1v":560,"r2d":100,"r2s":3,"r2v":555,"w":0},{"g":"g24","id":"p14","n":"FOYSAL Mini","qd":100,"qs":3,"qt":179,"r1d":100,"r1s":3,"r1v":510,"r2d":100,"r2s":3,"r2v":564,"w":0},{"g":"g23","id":"p15","n":"FOYSAL th12","qd":99,"qs":2,"qt":180,"r1d":100,"r1s":3,"r1v":490,"r2d":100,"r2s":3,"r2v":550,"w":0},{"g":"g24","id":"p16","n":"FARNAZ","ad":99,"as":2,"at":155,"bd":100,"bs":3,"bt":160,"qd":100,"qs":3,"qt":175,"r1d":100,"r1s":3,"r1v":556,"r2d":100,"r2s":3,"r2v":556,"w":0},{"g":"g23","id":"p17","n":"OSHIR","qd":100,"qs":3,"qt":180,"r1d":100,"r1s":3,"r1v":489,"r2d":100,"r2s":3,"r2v":540,"w":0},{"g":"g24","id":"p18","n":"OSHIR Jr","qd":99,"qs":2,"qt":180,"r1d":99,"r1s":2,"r1v":485,"r2d":100,"r2s":3,"r2v":543,"w":0},{"g":"g23","id":"p19","n":"CHITTAGONG","qd":95,"qs":2,"qt":180,"r1d":100,"r1s":3,"r1v":440,"r2d":100,"r2s":3,"r2v":545,"w":0},{"g":"g24","id":"p20","n":"Mohammad Yeamin","qd":98,"qs":2,"qt":180,"r1d":93,"r1s":2,"r1v":500,"r2d":100,"r2s":3,"r2v":539,"w":0},{"g":"g24","id":"p25","n":"Yeamin Mohammad","r1d":89,"r1s":2,"r1v":423,"r2d":100,"r2s":3,"r2v":540},{"g":"g23","id":"p26","n":"Noman MD","r1d":63,"r1s":2,"r1v":422,"r2d":100,"r2s":3,"r2v":520},{"g":"g23","id":"p27","n":"Shadot"},{"g":"g24","id":"p28","n":"Shadot Shila"}],"prizes":["Gold Pass 6 Months","Gold Pass 3 Months","Gold Pass 1 Month"],"semiN":4,"title":"Chatga Vikings "}}</script>
 <script>
-(function APP(){var HEAD="<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n<title>Tournament Tracker</title>\n<link href=\"https://fonts.googleapis.com/css2?family=Bungee&family=Lilita+One&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&display=swap\" rel=\"stylesheet\">\n<style>\n:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark;\n--bg:#1b0b3a;--card:#2a1359;--line:#4a2a8a;--text:#f3edff;--mute:#a99bd1;--gold:#ffd23f;--violet:#b583ff;--red:#ff5c7a}\nhtml{scroll-padding-top:env(safe-area-inset-top,0px)}\n*{box-sizing:border-box}\nbody{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,\"Segoe UI\",sans-serif}\n.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 40px}\nh1{font-family:Bungee,Impact,sans-serif;color:var(--gold);font-size:clamp(26px,6vw,46px);margin:0 0 12px;font-weight:400}\n.live{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:16px;font-size:14px;background:var(--card)}\n.live b{color:var(--violet);margin-right:8px}\n.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}\n.tab{background:none;border:0;color:var(--mute);padding:9px 13px;border-radius:10px;font-size:14px;cursor:pointer;text-transform:uppercase}\n.tab.on{background:var(--gold);color:#1b0b3a;font-weight:700}\n.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}\n.note{color:var(--mute);font-size:13px;margin:0 0 14px;text-transform:uppercase}\n.sc{overflow-x:auto;margin-bottom:8px}\ntable{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}\nth{color:var(--mute);font-size:12px;text-transform:uppercase;padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}\ntd{padding:9px 6px;text-align:center;border-bottom:1px solid #4a2a8a55;font-variant-numeric:tabular-nums}\nth.l,td.l{text-align:left;font-weight:600}\ntr.out td.l{color:var(--red)}\n.row{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:8px;background:#34187080;border-left:4px solid var(--violet);border-radius:8px}\n.row.adv{border-left-color:var(--gold)}\n.row.out .nm{color:var(--red)}\n.nm{flex:1;font-weight:600;min-width:0;overflow-wrap:anywhere}\n.val{color:var(--mute);font-variant-numeric:tabular-nums}\n.stars{color:var(--gold)}\ninput,select{background:#1b0b3a;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:6px;width:72px;font-size:14px}\ninput.name{width:150px}input.wide{width:100%;max-width:340px}\n.grid2{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}\n.grid2 label,.fld{font-size:11px;color:var(--mute);display:flex;flex-direction:column;gap:2px}\n.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}\n.cols h3,.mt{margin:14px 0 8px;font-size:13px;color:var(--mute);text-transform:uppercase}\n.cols h3{margin-top:0}\n.pod{border-radius:12px;padding:16px;text-align:center;margin-bottom:10px;border:2px solid}\n.pod small{display:block;font-size:12px;letter-spacing:.08em;margin-bottom:4px}\n.pod b{font-size:20px}\n.p1{border-color:var(--gold);color:var(--gold);background:#ffd23f1a}\n.p2{border-color:#9aa3c7;color:#c8cff0;background:#9aa3c71a}\n.p3{border-color:#d2874a;color:#f0b07a;background:#d2874a1a}\n/* BRACKET tab, styled after the reference bracket */\n#view.rbk{--surface:#26114a;--sunk:#200e3d;--ink:#f6f0ff;--muted:#b9a8d9;--line:#43297a;--elixir:#c69bff;--gold:#ffd23f;--gold-soft:#3d300a;--out:#ff6b7a;--out-soft:#4a1630;--m1:#ffd23f;--m1-soft:#4a3b0c;--m2:#d3dbe5;--m2-soft:#3a3550;--m3:#e6a06a;--m3-soft:#4a2a1e;\nbackground:var(--surface);border-color:var(--line);color:var(--ink);font-family:\"Nunito Sans\",system-ui,sans-serif;display:grid;gap:12px}\n.rbk h2,.rbk h3{font-family:\"Lilita One\",\"Nunito Sans\",sans-serif;font-weight:400;text-transform:uppercase;margin:0}\n.rbk .panel-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}\n.rbk .panel-head h2{font-size:1.5rem;letter-spacing:.02em}\n.rbk .note{color:var(--muted);font-size:.85rem;margin:0}\n.rbk .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:var(--muted)}\n.rbk .legend span::before{content:\"\";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--c,var(--elixir))}\n.rbk .legend span.x::before{background:var(--out)}\n.rbk .bracket{overflow-x:auto}\n.rbk .bk{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr)) minmax(170px,1.1fr);gap:18px 14px;min-width:860px;align-items:start}\n.rbk .bcol{display:grid;gap:4px;align-content:start}\n.rbk .bcol h3{font-size:.95rem;margin-bottom:4px;display:flex;justify-content:space-between;gap:6px}\n.rbk .bcol h3 small{font-family:\"Nunito Sans\",sans-serif;font-weight:700;color:var(--muted);font-size:.75rem}\n.rbk .bslot{display:flex;justify-content:space-between;gap:6px;background:var(--sunk);border:1px solid var(--line);border-left:4px solid var(--elixir);border-radius:7px;padding:4px 8px;font-size:.83rem;font-weight:700}\n.rbk .bslot.x span{color:var(--out);font-weight:800}\n.rbk .bslot.dz{background:var(--out-soft);border-color:var(--out)}\n.rbk .bslot em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}\n.rbk .km{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:6px;display:grid;gap:3px;margin-bottom:6px}\n.rbk .km.kf{border-color:var(--gold)}\n.rbk .kl{font-size:.6rem;font-weight:800;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}\n.rbk .ks{display:flex;align-items:center;gap:8px;width:100%;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:4px 6px;font-weight:700;font-size:.78rem}\n.rbk .ks .sd{font-size:.7rem;color:var(--muted);min-width:22px}\n.rbk .ks .kn{flex:1;min-width:0;overflow-wrap:anywhere}\n.rbk .ks .ck{color:var(--gold);font-weight:800}\n.rbk .ks.win{border-color:var(--gold);background:var(--gold-soft)}\n.rbk .ks.lose{opacity:.5}\n.rbk .ks.tbd{color:var(--muted)}\n.rbk .prize{display:grid;gap:4px;text-align:center;border:2px solid var(--line);border-radius:12px;padding:12px 10px;margin-bottom:6px}\n.rbk .prize .pl{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}\n.rbk .prize b{font-size:1.05rem;line-height:1.25;color:var(--ink)}\n.rbk .prize.m1{border-color:var(--m1);background:var(--m1-soft)}.rbk .prize.m1 .pl{color:var(--m1)}\n.rbk .prize.m2{border-color:var(--m2);background:var(--m2-soft)}.rbk .prize.m2 .pl{color:var(--m2)}\n.rbk .prize.m3{border-color:var(--m3);background:var(--m3-soft)}.rbk .prize.m3 .pl{color:var(--m3)}\n@media (max-width:640px){.rbk .bk>div{grid-row:auto!important;grid-column:auto!important}.rbk .bk{grid-template-columns:1fr;min-width:0;gap:16px}.rbk .bk>div:last-child{order:-1}}\n.hint{color:var(--mute);font-size:13px;margin-top:12px}\n.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}\n.btn{background:#34187080;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:7px 12px;font-size:13px;cursor:pointer}\n.btn.pub{background:var(--gold);color:#1b0b3a;border-color:var(--gold);font-weight:700}\n.btn.rs{color:var(--red);border-color:var(--red);font-weight:700}\n.btn.warn{background:var(--red);border-color:var(--red);color:#fff}\n.btn.x{padding:5px 9px}.btn.u{padding:4px 8px;font-size:12px;color:var(--mute)}\n.btn:disabled{opacity:.35;cursor:default}\n.sec{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;background:#1b0b3a55}\n.sec h2{margin:0 0 10px;font-size:15px;color:var(--gold)}\n.pg{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px}\n.pg select{width:150px}\n</style>\n</head>\n<body>\n",BODY="<div class=\"wrap\">\n  <h1 id=\"head\"></h1>\n  <div class=\"live\" id=\"live\"><b>● LIVE</b>RESULTS UPDATE AUTOMATICALLY AS EACH SCORE IS ENTERED.</div>\n  <div class=\"tabs\" id=\"tabs\"></div>\n  <div class=\"panel\" id=\"view\"></div>\n  <p class=\"hint\" id=\"auth\"></p>\n</div>\n";
-var SNAPAT=0,u=null,S=def(),db=null,admin=false,tab='r1',pend=null,warn='',tm=null,U=[],BK=[],dlc=null,scorer=false,denied=false,LS='',LW={},RAW={state:null,scores:{}};
+(function APP(){var HEAD="<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n<title>Tournament Tracker</title>\n<link href=\"https://fonts.googleapis.com/css2?family=Bungee&family=Lilita+One&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&display=swap\" rel=\"stylesheet\">\n<style>\n:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark;\n--bg:#1b0b3a;--card:#2a1359;--line:#4a2a8a;--text:#f3edff;--mute:#a99bd1;--gold:#ffd23f;--violet:#b583ff;--red:#ff5c7a}\nhtml{scroll-padding-top:env(safe-area-inset-top,0px)}\n*{box-sizing:border-box}\nbody{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,\"Segoe UI\",sans-serif}\n.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 40px}\nh1{font-family:Bungee,Impact,sans-serif;color:var(--gold);font-size:clamp(26px,6vw,46px);margin:0 0 12px;font-weight:400}\n.live{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:16px;font-size:14px;background:var(--card)}\n.live b{color:var(--violet);margin-right:8px}\n.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}\n.tab{background:none;border:0;color:var(--mute);padding:9px 13px;border-radius:10px;font-size:14px;cursor:pointer;text-transform:uppercase}\n.tab.on{background:var(--gold);color:#1b0b3a;font-weight:700}\n.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}\n.note{color:var(--mute);font-size:13px;margin:0 0 14px;text-transform:uppercase}\n.sc{overflow-x:auto;margin-bottom:8px}\ntable{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}\nth{color:var(--mute);font-size:12px;text-transform:uppercase;padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}\ntd{padding:9px 6px;text-align:center;border-bottom:1px solid #4a2a8a55;font-variant-numeric:tabular-nums}\nth.l,td.l{text-align:left;font-weight:600}\ntr.out td.l{color:var(--red)}\n.row{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:8px;background:#34187080;border-left:4px solid var(--violet);border-radius:8px}\n.row.adv{border-left-color:var(--gold)}\n.row.out .nm{color:var(--red)}\n.nm{flex:1;font-weight:600;min-width:0;overflow-wrap:anywhere}\n.val{color:var(--mute);font-variant-numeric:tabular-nums}\n.stars{color:var(--gold)}\ninput[type=number]{-moz-appearance:textfield;appearance:textfield}\ninput[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}\ninput,select{background:#1b0b3a;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:6px;width:72px;font-size:14px}\ninput.name{width:150px}input.wide{width:100%;max-width:340px}\n.grid2{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}\n.grid2 label,.fld{font-size:11px;color:var(--mute);display:flex;flex-direction:column;gap:2px}\n.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}\n.cols h3,.mt{margin:14px 0 8px;font-size:13px;color:var(--mute);text-transform:uppercase}\n.cols h3{margin-top:0}\n.pod{border-radius:12px;padding:16px;text-align:center;margin-bottom:10px;border:2px solid}\n.pod small{display:block;font-size:12px;letter-spacing:.08em;margin-bottom:4px}\n.pod b{font-size:20px}\n.p1{border-color:var(--gold);color:var(--gold);background:#ffd23f1a}\n.p2{border-color:#9aa3c7;color:#c8cff0;background:#9aa3c71a}\n.p3{border-color:#d2874a;color:#f0b07a;background:#d2874a1a}\n/* BRACKET tab, styled after the reference bracket */\n#view.rbk{--surface:#26114a;--sunk:#200e3d;--ink:#f6f0ff;--muted:#b9a8d9;--line:#43297a;--elixir:#c69bff;--gold:#ffd23f;--gold-soft:#3d300a;--out:#ff6b7a;--out-soft:#4a1630;--m1:#ffd23f;--m1-soft:#4a3b0c;--m2:#d3dbe5;--m2-soft:#3a3550;--m3:#e6a06a;--m3-soft:#4a2a1e;\nbackground:var(--surface);border-color:var(--line);color:var(--ink);font-family:\"Nunito Sans\",system-ui,sans-serif;display:grid;gap:12px}\n.rbk h2,.rbk h3{font-family:\"Lilita One\",\"Nunito Sans\",sans-serif;font-weight:400;text-transform:uppercase;margin:0}\n.rbk .panel-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}\n.rbk .panel-head h2{font-size:1.5rem;letter-spacing:.02em}\n.rbk .note{color:var(--muted);font-size:.85rem;margin:0}\n.rbk .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:var(--muted)}\n.rbk .legend span::before{content:\"\";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--c,var(--elixir))}\n.rbk .legend span.x::before{background:var(--out)}\n.rbk .bracket{overflow-x:auto}\n.rbk .bk{display:grid;grid-template-columns:repeat(4,minmax(170px,1fr)) minmax(160px,1.1fr);gap:18px 14px;min-width:0;align-items:start}\n.rbk .bcol{display:grid;gap:4px;align-content:start}\n.rbk .bcol h3{font-size:.95rem;margin-bottom:4px;display:flex;justify-content:space-between;gap:6px}\n.rbk .bcol h3 small{font-family:\"Nunito Sans\",sans-serif;font-weight:700;color:var(--muted);font-size:.75rem}\n.rbk .bslot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 6px;background:var(--sunk);border:1px solid var(--line);border-left:4px solid var(--elixir);border-radius:7px;padding:4px 8px;font-size:.83rem;font-weight:700}\n.rbk .bslot.x span{color:var(--out);font-weight:800}\n.rbk .bslot.dz{background:var(--out-soft);border-color:var(--out)}\n.rbk .bslot em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums}\n.rbk .bsub2{flex-basis:100%;display:flex;justify-content:space-between;gap:10px;font-size:.74rem;font-weight:700;color:var(--muted)}\n.rbk .bslot.nw{flex-wrap:nowrap;font-size:.78rem}\n.rbk .bslot.nw>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.rbk .bslot.nw em{white-space:nowrap;font-size:.74rem}\n.rbk .ks{flex-wrap:wrap}\n.rbk .ksc{flex-basis:100%;padding-left:30px;font-size:.72rem;color:var(--muted);margin-top:-2px}\n.rbk .ks.win .ksc{color:var(--gold)}\n.rbk .km{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:6px;display:grid;gap:3px;margin-bottom:6px}\n.rbk .km.kf{border-color:var(--gold)}\n.rbk .kl{font-size:.6rem;font-weight:800;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}\n.rbk .ks{display:flex;align-items:center;gap:8px;width:100%;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:4px 6px;font-weight:700;font-size:.78rem}\n.rbk .ks .sd{font-size:.7rem;color:var(--muted);min-width:22px}\n.rbk .ks .kn{flex:1;min-width:0;overflow-wrap:anywhere}\n.rbk .ks .ck{color:var(--gold);font-weight:800}\n.rbk .ks.win{border-color:var(--gold);background:var(--gold-soft)}\n.rbk .ks.lose{opacity:.5}\n.rbk .ks.tbd{color:var(--muted)}\n.rbk .prize{display:grid;gap:4px;text-align:center;border:2px solid var(--line);border-radius:12px;padding:12px 10px;margin-bottom:6px}\n.rbk .prize .pl{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}\n.rbk .prize b{font-size:1.05rem;line-height:1.25;color:var(--ink)}\n.rbk .prize.m1{border-color:var(--m1);background:var(--m1-soft)}.rbk .prize.m1 .pl{color:var(--m1)}\n.rbk .prize.m2{border-color:var(--m2);background:var(--m2-soft)}.rbk .prize.m2 .pl{color:var(--m2)}\n.rbk .prize.m3{border-color:var(--m3);background:var(--m3-soft)}.rbk .prize.m3 .pl{color:var(--m3)}\n@media (max-width:980px){.rbk .bk>div{grid-row:auto!important;grid-column:auto!important}.rbk .bk{grid-template-columns:1fr;min-width:0;gap:16px}.rbk .bk>div:last-child{order:-1}}\n:root{--sunk:#200e3d;--surface:#26114a;--in:#6fe3a5;--in-soft:#12402f;--out-soft:#4a1630;--gold-soft:#3d300a;--m1:#ffd23f;--m1-soft:#4a3b0c;--m2:#d3dbe5;--m2-soft:#3a3550;--m3:#e6a06a;--m3-soft:#4a2a1e}\n.ph{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}\n.ph h2{margin:0;font-family:\"Lilita One\",\"Nunito Sans\",sans-serif;font-weight:400;text-transform:uppercase;font-size:1.4rem}\n.chip{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:99px}\n.chip.live{background:var(--gold-soft);color:var(--gold)}\n.chip.final{background:var(--in-soft);color:var(--in)}\n.tag{font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:5px;margin-left:6px;vertical-align:middle;background:var(--in-soft);color:var(--in)}\n.tag.c{background:var(--gold);color:#1b0b3a}\n.tag.t3{background:var(--m3-soft);color:var(--m3)}\ntd.rank{width:36px;color:var(--mute)}\ntr.top1 td.rank{color:var(--gold)}\ntd.stars{color:var(--gold);letter-spacing:.05em;white-space:nowrap}\ntr.danger td{background:var(--out-soft)}\ntr.danger td.rank{color:var(--red);box-shadow:inset 3px 0 0 var(--red)}\n.dzkey{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--red);margin:6px 0 10px;font-weight:700}\n.dzkey i{width:12px;height:12px;border-radius:3px;background:var(--out-soft);border:2px solid var(--red);display:inline-block}\n.kg3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}\n.kc{display:grid;gap:10px;align-content:start;margin-top:14px}\n.kc h3{margin:0;font-family:\"Lilita One\",\"Nunito Sans\",sans-serif;font-weight:400;font-size:1rem;color:var(--gold);text-transform:uppercase}\n.pz{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}\n.pz2{grid-template-columns:repeat(2,minmax(0,1fr))}\n.prize{display:grid;gap:4px;text-align:center;border:2px solid var(--line);border-radius:12px;padding:12px 10px}\n.prize .pl{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}\n.prize b{font-size:1.05rem;line-height:1.25}\n.prize .pw{font-size:.85rem;color:var(--mute)}\n.prize.m1{border-color:var(--m1);background:var(--m1-soft)}.prize.m1 .pl{color:var(--m1)}\n.prize.m2{border-color:var(--m2);background:var(--m2-soft)}.prize.m2 .pl{color:var(--m2)}\n.prize.m3{border-color:var(--m3);background:var(--m3-soft)}.prize.m3 .pl{color:var(--m3)}\n.km{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:8px;display:grid;gap:4px;align-content:start}\n.km.kf{border-color:var(--gold)}\n.kl{font-size:.68rem;font-weight:800;letter-spacing:.1em;color:var(--mute);text-transform:uppercase}\n.ks{display:flex;flex-wrap:wrap;align-items:center;gap:8px;width:100%;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:6px 8px;font-weight:700;font-size:.88rem}\n.ks .sd{font-size:.7rem;color:var(--mute);min-width:22px}\n.ks .kn{flex:1;min-width:0;overflow-wrap:anywhere}\n.ks .ck{color:var(--gold);font-weight:800}\n.ks.win{border-color:var(--gold);background:var(--gold-soft)}\n.ks.lose{opacity:.55}\n.ks.tbd{color:var(--mute)}\n.ks .ksc{flex-basis:100%;padding-left:30px;font-size:.74rem;color:var(--mute);margin-top:-2px}\n.ks.win .ksc{color:var(--gold)}\n.ksi{margin:0 0 6px;justify-content:flex-start}\n.champ{text-align:center;padding:14px;border:2px solid var(--gold);border-radius:14px;background:var(--m1-soft);margin-bottom:12px}\n.champ .l{display:block;letter-spacing:.14em;font-size:.72rem;color:var(--gold);font-weight:800;text-transform:uppercase}\n.champ .n{font-family:\"Lilita One\",\"Nunito Sans\",sans-serif;font-size:1.7rem}\n@media (max-width:640px){.pz{grid-template-columns:1fr}}\n.wrap.wide{max-width:1400px}\n.hl .ks{background:#34187099;border-color:#6a46b8;padding:10px 12px;border-left:4px solid var(--violet)}\n.hl .ks .kn{font-size:1.06rem;font-weight:800;color:#fff}\n.hl .ks.win{background:var(--gold-soft);border-color:var(--gold);border-left-color:var(--gold)}\n.hl .ks.win .kn{color:var(--gold)}\n.hl .ks .sd{font-size:.78rem;color:var(--violet)}\n.hl .km{padding:10px;border-color:#6a46b8}\n.hl .km.kf{border-color:var(--gold)}\n.hl .stbl td.l{font-size:1.05rem;font-weight:800;color:#fff}\n.hl .stbl tr.out td.l{color:var(--red)}\n.hl .prize b{font-size:1.25rem;color:#fff}\n.hl .champ .n{font-size:2rem}\n.tp2{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:12px;align-items:start;margin:10px 0}\n@media (max-width:640px){.tp2{grid-template-columns:1fr}}\n.ksi2{display:flex;align-items:center;gap:6px;margin:0 0 8px 2px}\n.ksi2 b{font-weight:400;color:var(--mute);font-size:.85rem}\n.ksi2 input{width:58px;text-align:center}\n.ksi2 input.tm{width:76px}\n.pitbl{min-width:1040px}\n.pitbl input{width:100%;min-width:110px}\n.pitbl input.name{width:100%;min-width:150px}\ntextarea{background:#1b0b3a;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:8px;width:100%;max-width:560px;font:inherit;font-size:14px}\na.btn{text-decoration:none;color:var(--text);display:inline-block}\n.hint{color:var(--mute);font-size:13px;margin-top:12px}\n.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}\n.btn{background:#34187080;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:7px 12px;font-size:13px;cursor:pointer}\n.btn.pub{background:var(--gold);color:#1b0b3a;border-color:var(--gold);font-weight:700}\n.btn.rs{color:var(--red);border-color:var(--red);font-weight:700}\n.btn.warn{background:var(--red);border-color:var(--red);color:#fff}\n.btn.x{padding:5px 9px}.btn.u{padding:4px 8px;font-size:12px;color:var(--mute)}\n.btn:disabled{opacity:.35;cursor:default}\n.sec{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;background:#1b0b3a55}\n.sec h2{margin:0 0 10px;font-size:15px;color:var(--gold)}\n.pg{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px}\n.pg select{width:150px}\n</style>\n</head>\n<body>\n",BODY="<div class=\"wrap\" id=\"wrap\">\n  <h1 id=\"head\"></h1>\n  <div class=\"live\" id=\"live\"><b>● LIVE</b>RESULTS UPDATE AUTOMATICALLY AS EACH SCORE IS ENTERED.</div>\n  <div class=\"tabs\" id=\"tabs\"></div>\n  <div class=\"panel\" id=\"view\"></div>\n  <p class=\"hint\" id=\"auth\"></p>\n</div>\n";
+var SNAPAT=0,u=null,S=def(),db=null,admin=false,tab='r1',pend=null,warn='',tm=null,U=[],BK=[],CUR=null,CT={},MS='',MB='',dlc=null,scorer=false,denied=false,LS='',LW={},RAW={state:null,scores:{}};
 function np(i){return {id:'p'+i,n:'Player '+i};}
-function def(){var a=[];for(var i=1;i<=10;i++)a.push(np(i));return {title:'My Tournament',players:a,nid:11,cutVote:2,pairs:null,groups:[]};}
+function def(){var a=[];for(var i=1;i<=10;i++)a.push(np(i));return {title:'My Tournament',players:a,nid:11,cutVote:2,pairs:null,groups:[],prizes:['','',''],semiN:4};}
 function norm(){
   S.players=S.players||[];S.nid=S.nid||S.players.length+1;
   S.players.forEach(function(p){if(!p.id)p.id='p'+(S.nid++);if(p.v!==undefined){if(p.r1v===undefined)p.r1v=p.v;delete p.v;}});
-  S.groups=S.groups||[];S.players.forEach(function(p){if(p.g&&!S.groups.some(function(q){return q.id===p.g;}))delete p.g;});
+  S.groups=S.groups||[];S.prizes=S.prizes||['','',''];S.semiN=Math.max(4,S.semiN||4);S.players.forEach(function(p){if(p.g&&!S.groups.some(function(q){return q.id===p.g;}))delete p.g;});
   if(typeof S.cutVote!=='number')S.cutVote=2;
   S.cutVote=Math.max(0,Math.min(S.cutVote,S.players.length-4));
 }
@@ -134,28 +211,35 @@ function betterS(A,B){if(A.w!==B.w)return A.w>B.w;if(A.s!==B.s)return A.s>B.s;if
 function calc(){
   var n=S.players.length,cut=Math.max(0,Math.min(S.cutVote,n-4)),vr=vrank([1,2]);
   var qfp=vr.slice(0,n-cut),vout=vr.slice(n-cut);
-  var qr=qfp.slice().sort(function(a,b){var A=sc(a,'q'),B=sc(b,'q'),pa=played(A),pb=played(B);if(pa!==pb)return pa?-1:1;if(!pa)return 0;if(A.s===B.s&&A.d===B.d&&A.t===B.t)return 0;return better(A,B)?-1:1;});
+  var semiN=Math.max(4,Math.min(S.semiN||4,qfp.length)),ranked=semiN>4;
+  var cmp=function(x){return function(a,b){var A=sc(a,x),B=sc(b,x),pa=played(A),pb=played(B);if(pa!==pb)return pa?-1:1;if(!pa)return 0;if(A.s===B.s&&A.d===B.d&&A.t===B.t)return 0;return better(A,B)?-1:1;};};
+  var qr=qfp.slice().sort(cmp('q'));
   var qdone=qfp.every(function(p){return played(sc(p,'q'));});
-  var semis=qr.slice(0,4),auto=[[semis[0],semis[3]],[semis[1],semis[2]]],pr=auto,manual=false;
-  if(S.pairs&&S.pairs.length===2){var ids=[].concat(S.pairs[0],S.pairs[1]);
-    var ok=ids.length===4&&ids.every(function(id){return semis.some(function(p){return p.id===id;});})&&new Set(ids).size===4;
-    if(ok){pr=S.pairs.map(function(q){return q.map(byId);});manual=true;}}
-  var sf=pr.map(function(p){return {a:p[0],b:p[1],x:'a',w:duel(p[0],p[1],'a')};});
-  var fa=sf[0].w,fb=sf[1].w;
+  var semis=qr.slice(0,semiN),auto=[[semis[0],semis[3]],[semis[1],semis[2]]],pr=auto,manual=false,sf=[],sfr=[],sfdone=false,fa=null,fb=null,L=[null,null];
+  if(!ranked){
+    if(S.pairs&&S.pairs.length===2){var ids=[].concat(S.pairs[0],S.pairs[1]);
+      var ok=ids.length===4&&ids.every(function(id){return semis.some(function(p){return p.id===id;});})&&new Set(ids).size===4;
+      if(ok){pr=S.pairs.map(function(q){return q.map(byId);});manual=true;}}
+    sf=pr.map(function(p){return {a:p[0],b:p[1],x:'a',w:duel(p[0],p[1],'a')};});
+    fa=sf[0].w;fb=sf[1].w;L=sf.map(function(s){return other(s,s.w);});
+  }else{
+    sfr=semis.slice().sort(cmp('a'));
+    sfdone=semis.every(function(p){return played(sc(p,'a'));});
+    if(sfdone){fa=sfr[0];fb=sfr[1];L=[sfr[2],sfr[3]];}
+  }
   var G=[1,2,3].map(function(k){return {a:fa,b:fb,x:'f'+k,w:duel(fa,fb,'f'+k)};});
   var A=fa?agg(fa,G):null,B=fb?agg(fb,G):null,champ=null,ru=null;
   if(fa&&fb&&A.n===3){champ=betterS(A,B)?fa:fb;ru=champ.id===fa.id?fb:fa;}
-  var L=sf.map(function(s){return other(s,s.w);});
   var tp={a:L[0],b:L[1],x:'b',w:duel(L[0],L[1],'b')};
-  return {n:n,cut:cut,vr:vr,vout:vout,qfp:qfp,qr:qr,qdone:qdone,semis:semis,auto:auto,manual:manual,sf:sf,G:G,fa:fa,fb:fb,A:A,B:B,f:{a:fa,b:fb,w:champ},champ:champ,ru:ru,tp:tp,third:tp.w};
+  return {n:n,cut:cut,vr:vr,vout:vout,qfp:qfp,qr:qr,qdone:qdone,semiN:semiN,ranked:ranked,semis:semis,auto:auto,manual:manual,sf:sf,sfr:sfr,sfdone:sfdone,G:G,fa:fa,fb:fb,A:A,B:B,f:{a:fa,b:fb,w:champ},champ:champ,ru:ru,tp:tp,third:tp.w};
 }
 var GC=['#c69bff','#ffd23f','#5fd38d','#ff9f5a','#6ec3ff','#ff8fc8','#b6e35a','#9aa3c7'];
 function gi(p){for(var i=0;i<S.groups.length;i++)if(S.groups[i].id===p.g)return i;return -1;}
 function gcol(p){var i=gi(p);return i<0?GC[0]:GC[i%GC.length];}
 function gnm(p){var i=gi(p);return i<0?'':S.groups[i].name;}
-function dlfile(label,state){if(!dlc){warn='Download is not available in this view.';render();return;}
+function dlfile(label,state,contacts){if(!dlc){warn='Download is not available in this view.';render();return;}
   var d=new Date().toISOString().slice(0,10),slug=String(label||'backup').replace(/[^\w\-]+/g,'-').slice(0,40);
-  dlc.save({filename:'tournament-'+slug+'-'+d+'.json',data:JSON.stringify({app:'tournament-tracker',v:1,label:label||'Backup',at:Date.now(),state:state},null,1)}).catch(function(){});}
+  dlc.save({filename:'tournament-'+slug+'-'+d+'.json',data:JSON.stringify({app:'tournament-tracker',v:1,label:label||'Backup',at:Date.now(),state:state,contacts:contacts||null},null,1)}).catch(function(){});}
 function inp(id,k,v,l){return '<label>'+l+'<input type="number" data-i="'+id+'" data-k="'+k+'" value="'+v+'"></label>';}
 function tinp(id,k,v){return '<label>Time<input type="text" placeholder="1m30s" data-time="1" data-i="'+id+'" data-k="'+k+'" value="'+fmt(v)+'"></label>';}
 var RK={r1:['r1s','r1d','r1v'],r2:['r2s','r2d','r2v'],qf:['qs','qd','qt'],sf:['as','ad','at'],tp:['bs','bd','bt'],f:['f1s','f1d','f1t','f2s','f2d','f2t','f3s','f3d','f3t']};
@@ -163,7 +247,7 @@ var TN={r1:'Round 1',r2:'Round 2',qf:'Quarterfinal',sf:'Semifinal',tp:'3rd Place
 function ubtn(){return '<button class="btn u" data-act="undo"'+(U.length?'':' disabled')+' title="Undo the last change">\u21b6 Undo</button>';}
 function rbtn(a,l){return '<button class="btn'+(a.indexOf('reset:')===0?' rs':'')+(pend===a?' warn':'')+'" data-act="'+a+'">'+(pend===a?'Click again to confirm':l)+'</button>'+ubtn();}
 function bar(){if(!admin||!RK[tab])return '';return '<div class="bar">'+rbtn('reset:'+tab,'Reset '+TN[tab])+(warn?'<span class="val">'+warn+'</span>':'')+'</div>';}
-function foot(){return admin&&tab!=='ad'&&tab!=='br'?'<div class="bar" style="margin-top:16px">'+rbtn('reset:all','Reset ALL scores and votes')+'</div>':'';}
+function foot(){return admin&&tab!=='ad'&&tab!=='pi'&&tab!=='br'?'<div class="bar" style="margin-top:16px">'+rbtn('reset:all','Reset ALL scores and votes')+'</div>':'';}
 function pushU(){U.push(JSON.stringify(S));if(U.length>10)U.shift();}
 function clearKeys(keys){S.players.forEach(function(p){keys.forEach(function(k){delete p[k];});});}
 function tbl(head,rows){return '<div class="sc"><table><thead><tr>'+head.map(function(h,i){return '<th'+(i===1?' class="l"':'')+'>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table></div>';}
@@ -171,49 +255,154 @@ function tr(c,out){return '<tr'+(out?' class="out"':'')+'>'+c.map(function(x,i){
 function entry(title,list,pre,last){
   return '<h3 class="mt">'+title+'</h3>'+list.map(function(p){return '<div class="row"><span class="nm">'+esc(p.n)+'</span><div class="grid2">'+inp(p.id,pre+'s',g(p,pre+'s'),'Stars')+inp(p.id,pre+'d',g(p,pre+'d'),'Dest %')+(last==='v'?inp(p.id,pre+'v',g(p,pre+'v'),'Votes'):tinp(p.id,pre+'t',g(p,pre+'t')))+'</div></div>';}).join('');
 }
+function ii(id,k,v){return '<input type="number" data-i="'+id+'" data-k="'+k+'" value="'+v+'">';}
+function ti(id,k,v){return '<input class="tm" type="text" placeholder="1m30s" data-time="1" data-i="'+id+'" data-k="'+k+'" value="'+(v?fmt(v):'')+'">';}
+function setContacts(o){CT=o;if(db)Object.keys(o).forEach(function(id){db.doc('contacts/'+id).set(o[id]).catch(function(){});});}
+function csvCell(v){v=String(v==null?'':v);return '"'+v.replace(/"/g,'""')+'"';}
+async function downloadCsv(){
+  if(!dlc){warn='Download is not available in this view.';render();return;}
+  var rows=[['Player/Team Name','Player Tag','Group','Address','Contact number','Alternate contact','Email','R1 votes','R2 votes']];
+  S.players.forEach(function(p){var c=CT[p.id]||{};rows.push([p.n,c.tag,gnm(p),c.addr,c.phone,c.alt,c.email,g(p,'r1v'),g(p,'r2v')]);});
+  var txt='\ufeff'+rows.map(function(r){return r.map(csvCell).join(',');}).join('\r\n');
+  try{await dlc.save({filename:'players.csv',data:txt});warn='';}catch(e){warn='';}
+  render();
+}
+function allEmails(){return S.players.map(function(p){return (CT[p.id]||{}).email;}).filter(Boolean);}
+function copyEmails(){
+  var all=allEmails().join(', ');
+  var done=function(ok){warn=ok?'Copied '+allEmails().length+' emails.':'Copy is blocked here. Select the emails in the box below and copy them.';render();};
+  try{navigator.clipboard.writeText(all).then(function(){done(true);},function(){done(false);});}catch(e){done(false);}
+}
+function mailLink(to,bcc,gm){
+  var q='subject='+encodeURIComponent(MS)+'&body='+encodeURIComponent(MB);
+  if(gm)return 'https://mail.google.com/mail/?view=cm&fs=1&'+(to?'to='+encodeURIComponent(to)+'&':'')+(bcc?'bcc='+encodeURIComponent(bcc)+'&':'')+q;
+  return 'mailto:'+(to?encodeURI(to):'')+'?'+(bcc?'bcc='+encodeURIComponent(bcc)+'&':'')+q;
+}
+function piTab(){
+  var all=allEmails().join(',');
+  var rows=S.players.map(function(p){var c=CT[p.id]||{};
+    return '<tr><td class="l"><input type="text" class="name" data-i="'+p.id+'" data-k="n" value="'+esc(p.n)+'"></td>'+
+      ['tag','addr','phone','alt','email'].map(function(k){return '<td><input type="'+(k==='email'?'email':'text')+'" data-ct="'+p.id+'" data-k="'+k+'" value="'+esc(c[k]||'')+'"></td>';}).join('')+
+      '<td style="white-space:nowrap">'+(c.email?'<a class="btn" href="'+esc(mailLink(c.email,'',false))+'" target="_blank" rel="noopener">\u2709 Mail</a> <a class="btn" href="'+esc(mailLink(c.email,'',true))+'" target="_blank" rel="noopener">Gmail</a>':'\u2013')+'</td></tr>';}).join('');
+  var h='<div class="ph"><h2>Player/team info</h2></div><p class="note">Only you can see this tab. It is not part of the public page. Changes save automatically.</p>';
+  h+='<div class="sc"><table class="stbl pitbl"><thead><tr><th class="l">Player/Team Name</th><th>Player Tag</th><th>Address</th><th>Contact number</th><th>Alternate contact</th><th>Email</th><th>Send</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+  h+='<div class="sec" style="margin-top:14px"><h2>Email</h2><label class="fld">Subject<input class="wide" id="ms" value="'+esc(MS)+'"></label><label class="fld" style="margin-top:8px">Message<textarea id="mb" rows="4">'+esc(MB)+'</textarea></label>'+
+    '<div class="bar" style="margin-top:10px"><a class="btn pub" href="'+esc(mailLink('',all,false))+'" target="_blank" rel="noopener">\u2709 Email everyone ('+allEmails().length+')</a><a class="btn" href="'+esc(mailLink('',all,true))+'" target="_blank" rel="noopener">Gmail everyone</a><button class="btn" data-act="copyem">Copy all emails</button><button class="btn" data-act="csv">\u2b07 Download as CSV</button>'+(warn?'<span class="val">'+warn+'</span>':'')+'</div>'+
+    '<input class="wide" readonly value="'+esc(allEmails().join(', '))+'" placeholder="No emails yet">'+
+    '<p class="val">Mail opens your email app (or Gmail) with the subject and message filled in. Sending always happens from your own email account. Everyone gets a BCC copy so addresses stay hidden from each other.</p></div>';
+  return h;
+}
+function starsN(n,k){n=Math.max(0,Math.min(k,n|0));return '\u2605'.repeat(n)+'\u2606'.repeat(k-n);}
+function seedOf(p){if(!p||!CUR)return '\u2013';for(var i=0;i<CUR.qr.length;i++)if(CUR.qr[i].id===p.id)return '#'+(i+1);return '\u2013';}
+function ph(t,done){return '<div class="ph"><h2>'+t+'</h2><span class="chip '+(done?'final':'live')+'">'+(done?'Complete':'In progress')+'</span></div>';}
+function dzkey(t){return '<p class="dzkey"><i></i>'+t+'</p>';}
+function stbl(rows,x){
+  var started=rows.some(function(r){return played(sc(r.p,x));});
+  var h='<div class="sc"><table class="stbl"><thead><tr><th>#</th><th class="l">Player</th><th>Stars</th><th>Destruction</th><th>Time</th></tr></thead><tbody>';
+  rows.forEach(function(r,i){var q=sc(r.p,x),pl=played(q),zone=started&&r.zone;
+    h+='<tr class="'+(zone?'danger':'')+(r.out?' out':'')+(i===0&&pl?' top1':'')+'"><td class="rank">'+(pl?i+1:'\u2013')+'</td><td class="l">'+esc(r.p.n)+(r.tag?'<span class="tag'+(r.tc||'')+'">'+r.tag+'</span>':'')+'</td><td class="stars">'+(pl?stars3(q.s):'\u2013')+'</td><td>'+(pl?q.d+'%':'\u2013')+'</td><td>'+(pl?fmt(q.t):'\u2013')+'</td></tr>';});
+  return h+'</tbody></table></div>';
+}
 function card(title,m,x){
-  var h='<h3 class="mt">'+title+'</h3>';
+  var h='<div class="km'+(x&&x.charAt(0)==='f'?' kf':'')+'"><div class="kl">'+title+'</div>';
   [m.a,m.b].forEach(function(p){
-    if(!p){h+='<div class="row"><span class="nm val">TBD</span></div>';return;}
-    var q=sc(p,x),win=m.w&&m.w.id===p.id;
-    h+='<div class="row '+(win?'adv':'')+'"><span class="nm">'+esc(p.n)+(win?' \u2713':'')+'</span>'+(canScore()?'<div class="grid2">'+inp(p.id,x+'s',q.s,'Stars')+inp(p.id,x+'d',q.d,'Dest %')+tinp(p.id,x+'t',q.t)+'</div>':'<span class="val"><span class="stars">'+'\u2605'.repeat(Math.min(3,q.s))+'</span> '+q.d+'% \u00b7 '+fmt(q.t)+'</span>')+'</div>';
+    if(!p){h+='<div class="ks tbd"><span class="sd">\u2013</span><span class="kn">TBD</span></div>';return;}
+    var q=sc(p,x),win=m.w&&m.w.id===p.id,cl=m.w?(win?' win':' lose'):'';
+    h+='<div class="ks'+cl+'"><span class="sd">'+seedOf(p)+'</span><span class="kn">'+esc(p.n)+'</span>'+(win?'<span class="ck">\u2713</span>':'')+(played(q)&&!canScore()?'<span class="ksc">'+stars3(q.s)+' \u00b7 '+q.d+'%'+(q.t?' \u00b7 '+fmt(q.t):'')+'</span>':'')+'</div>';
+    if(canScore())h+='<div class="ksi2"><b>\u2605</b>'+ii(p.id,x+'s',q.s)+'<b>%</b>'+ii(p.id,x+'d',q.d)+'<b>\u23f1</b>'+ti(p.id,x+'t',q.t)+'</div>';
   });
+  return h+'</div>';
+}
+function finalists(C){return '<div class="kc"><h3>Finalists</h3><div class="pz pz2">'+[C.fa,C.fb].map(function(p,i){return '<div class="prize m'+(i?2:1)+'"><span class="pl">Finalist '+(i+1)+'</span><b>'+nm(p)+'</b></div>';}).join('')+'</div></div>';}
+function sfRanked(C){
+  var done=C.sfdone,out=C.semiN-4;
+  var rows=C.sfr.map(function(p,i){return {p:p,zone:i>=4,out:done&&i>=4,tag:done&&i<4?(i<2?'FINAL':'3RD PLACE'):'',tc:i>=2?' t3':''};});
+  var started=C.sfr.some(function(p){return played(sc(p,'a'));});
+  var h=ph('Semifinal \u00b7 '+C.semiN+' players',done)+'<p class="note">No voting. Each player attacks once. Ranked by stars, then destruction %, then faster time. The top 2 play the Final, ranks 3 and 4 play the 3rd place match, and the bottom '+out+' are eliminated.</p>'+stbl(rows,'a');
+  if(started)h+=dzkey(done?'Bottom '+out+' eliminated':'Danger zone: bottom '+out+' would be eliminated');
+  if(canScore())h+=entry('Enter Semifinal attacks',C.semis,'a','t');
+  return h+finalists(C);
+}
+function sfTab(C){
+  if(C.ranked)return sfRanked(C);
+  var done=C.sf.every(function(m){return m.w;}),ids={},ps=[];
+  C.sf.forEach(function(m){if(m.w)ids[m.w.id]=1;if(m.a)ps.push(m.a);if(m.b)ps.push(m.b);});
+  ps.sort(function(a,b){var wa=ids[a.id]?0:1,wb=ids[b.id]?0:1;if(wa!==wb)return wa-wb;var A=sc(a,'a'),B=sc(b,'a'),pa=played(A),pb=played(B);if(pa!==pb)return pa?-1:1;if(!pa||(A.s===B.s&&A.d===B.d&&A.t===B.t))return 0;return better(A,B)?-1:1;});
+  var rows=ps.map(function(p,i){return {p:p,zone:i>=2,tag:done?(ids[p.id]?'FINAL':'3RD PLACE'):'',tc:done&&!ids[p.id]?' t3':''};});
+  var started=ps.some(function(p){return played(sc(p,'a'));});
+  var h=ph('Semifinal \u00b7 4 players',done)+'<p class="note">'+(C.manual?'Manual':'Auto')+' matchups. No voting. Each match is won on stars, then destruction %, then faster time. The 2 winners reach the Final, the 2 others play the 3rd place match.'+(C.qdone?'':' The field is provisional until all Quarterfinal attacks are in.')+'</p>'+stbl(rows,'a');
+  if(started)h+=dzkey(done?'Bottom 2 go to the 3rd place match':'Danger zone: bottom 2 would play the 3rd place match');
+  h+='<div class="kg3">'+C.sf.map(function(m,k){return card('SEMIFINAL MATCH '+(k+1),m,'a');}).join('')+'</div>';
+  return h+finalists(C);
+}
+function tpTab(C){
+  var w=C.tp.w,ps=[C.tp.a,C.tp.b].filter(Boolean);
+  ps.sort(function(a,b){var wa=w&&w.id===a.id?0:1,wb=w&&w.id===b.id?0:1;if(wa!==wb)return wa-wb;var A=sc(a,'b'),B=sc(b,'b'),pa=played(A),pb=played(B);if(pa!==pb)return pa?-1:1;if(!pa||(A.s===B.s&&A.d===B.d&&A.t===B.t))return 0;return better(A,B)?-1:1;});
+  var rows=ps.map(function(p){return {p:p,zone:false,tag:w&&w.id===p.id?'2ND RUNNER-UP':'',tc:' t3'};});
+  var h=ph('3rd place match',!!w)+'<p class="note">'+(C.ranked?'Ranks 3 and 4 of the Semifinal play for 3rd place.':'The two semifinal losers play for 3rd place.')+' The winner is the 2nd Runner-up. Won on stars, then destruction %, then faster time.</p>';
+  if(ps.length)h+=stbl(rows,'b');
+  return h+'<div class="tp2">'+card('3RD PLACE MATCH',C.tp,'b')+'<div class="prize m3"><span class="pl">3rd place winner</span><b>'+nm(w)+'</b><span class="pw">2nd Runner-up</span></div></div>'+finalists(C);
+}
+function finalTab(C){
+  var h='';
+  if(C.champ)h+='<div class="champ"><span class="l">Champion</span><span class="n">'+esc(C.champ.n)+'</span></div>';
+  h+=ph('Final \u00b7 3 matches',!!C.champ)+'<p class="note">The two finalists play 3 matches. Champion = most matches won, then total stars, then total destruction %, then lower total time.</p>';
+  if(C.A&&C.B){var L=[[C.fa,C.A],[C.fb,C.B]].sort(function(a,b){return betterS(a[1],b[1])?-1:1;});
+    h+='<div class="sc"><table class="stbl"><thead><tr><th>#</th><th class="l">Player</th><th>Won</th><th>Stars</th><th>Destruction</th><th>Time</th></tr></thead><tbody>'+L.map(function(z,i){var win=C.champ&&C.champ.id===z[0].id;return '<tr><td class="rank">'+(i+1)+'</td><td class="l">'+esc(z[0].n)+(win?'<span class="tag c">CHAMPION</span>':'')+'</td><td>'+z[1].w+'</td><td class="stars">'+z[1].s+'\u2605</td><td>'+(+z[1].d.toFixed(1))+'%</td><td>'+fmt(z[1].t)+'</td></tr>';}).join('')+'</tbody></table></div>';}
+  h+='<div class="kg3">'+C.G.map(function(m,k){return card('FINAL MATCH '+(k+1),m,m.x);}).join('')+'</div>';
+  var W=[C.champ,C.ru,C.third],PN=['Champion','Runner-up','2nd Runner-up'];
+  h+='<div class="kc"><h3>Winners</h3><div class="pz">'+W.map(function(p,i){return '<div class="prize m'+(i+1)+'"><span class="pl">'+PN[i]+'</span><b>'+nm(p)+'</b></div>';}).join('')+'</div></div>';
+  h+='<div class="kc"><h3>Prize pool</h3><div class="pz">'+W.map(function(p,i){var pr=S.prizes&&S.prizes[i];return '<div class="prize m'+(i+1)+'"><span class="pl">'+['1st','2nd','3rd'][i]+' \u00b7 '+PN[i]+'</span><b>'+(pr?esc(pr):'TBD')+'</b><span class="pw">'+nm(p)+'</span></div>';}).join('')+'</div></div>';
+  h+='<p class="note">2nd Runner-up is the winner of the 3rd place match between the two semifinal losers.</p>';
   return h;
 }
 function mini(title,ms){return '<div><h3>'+title+'</h3>'+ms.map(function(m){return [m.a,m.b].map(function(p){return '<div class="row '+(m.w&&p&&m.w.id===p.id?'adv':'')+'"><span class="nm">'+(p?esc(p.n):'TBD')+'</span></div>';}).join('')+'<div style="height:6px"></div>';}).join('')+'</div>';}
 function nm(p){return p?esc(p.n):'TBD';}
 function pod(C){return '<div class="pod p1"><small>CHAMPION</small><b>'+nm(C.champ)+'</b></div><div class="pod p2"><small>RUNNER-UP</small><b>'+nm(C.ru)+'</b></div><div class="pod p3"><small>2ND RUNNER-UP (3rd place winner)</small><b>'+nm(C.third)+'</b></div>';}
 function roundTab(rs,C){
-  var ord=vrank(rs),two=rs.length===2,h='',G=S.groups.length>0;
-  var rows=ord.map(function(p,k){var s=st(p,rs),c=[k+1,esc(p.n)];if(G)c.push(esc(gnm(p))||'\u2013');
-    c=c.concat([s.m,s.t,s.m?s.a.toFixed(1)+'%':'\u2013',rp(p,1)?g(p,'r1v'):'\u2013',two&&rp(p,2)?g(p,'r2v'):'\u2013',s.v]);return tr(c,two&&k>=C.n-C.cut);});
-  h+='<p class="note">'+(two?'Votes add up across both rounds. Bottom '+C.cut+' after Round 2 are eliminated. Ties break on 3\u2605 count, then average destruction.':'Round 1 \u00b7 ranked by votes, then 3\u2605 count, then average destruction.')+'</p>';
+  var ord=vrank(rs),two=rs.length===2,G=S.groups.length>0,r=two?2:1;
+  var started=S.players.some(function(p){return rp(p,r);}),done=S.players.every(function(p){return rp(p,r);});
+  var rows=ord.map(function(p,k){var s=st(p,rs),zone=two&&started&&k>=C.n-C.cut,out=two&&done&&k>=C.n-C.cut;
+    var tag=two&&done&&k<C.n-C.cut?'<span class="tag">QUARTERFINAL</span>':'';
+    var c=[k+1,esc(p.n)+tag];if(G)c.push(esc(gnm(p))||'\u2013');
+    c=c.concat([s.m,s.t,s.m?s.a.toFixed(1)+'%':'\u2013',rp(p,1)?g(p,'r1v'):'\u2013',two&&rp(p,2)?g(p,'r2v'):'\u2013',s.v]);
+    return '<tr class="'+(zone?'danger':'')+(out?' out':'')+'">'+c.map(function(x,i){return '<td'+(i===0?' class="rank"':i===1?' class="l"':'')+'>'+x+'</td>';}).join('')+'</tr>';});
   var head=['#','Player'];if(G)head.push('Group');head=head.concat(['Matches','3\u2605','Avg dest.','R1','R2','Total votes']);
-  h+=tbl(head,rows);
-  if(canScore())h+=entry('Enter Round '+(two?2:1)+' results',S.players,'r'+(two?2:1),'v');
+  var h=ph('Round '+r,done)+'<p class="note">'+(two?'Votes add up across both rounds. Ties break on 3\u2605 count, then average destruction.':'Ranked by votes, then 3\u2605 count, then average destruction.')+'</p>';
+  h+='<div class="sc"><table class="stbl"><thead><tr>'+head.map(function(x,i){return '<th'+(i===1?' class="l"':'')+'>'+x+'</th>';}).join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table></div>';
+  if(two&&started&&C.cut>0)h+=dzkey(done?'Bottom '+C.cut+' eliminated':'Danger zone: bottom '+C.cut+' would be eliminated');
+  if(canScore())h+=entry('Enter Round '+r+' results',S.players,'r'+r,'v');
   return h;
 }
 function qfTab(C){
-  var h='<p class="note">Quarterfinal \u00b7 no voting. Ranked by stars, then destruction, then time. Bottom '+Math.max(0,C.qfp.length-4)+' are eliminated, top 4 go to the Semifinal.</p>';
-  h+=tbl(['#','Player','Stars','Destruction','Time'],C.qr.map(function(p,k){var q=sc(p,'q');return tr([k+1,esc(p.n),played(q)?'<span class="stars">'+'\u2605'.repeat(Math.min(3,q.s))+'</span> '+q.s:'\u2013',played(q)?q.d+'%':'\u2013',played(q)?fmt(q.t):'\u2013'],k>=4);}));
+  var N=C.semiN,out=Math.max(0,C.qfp.length-N),done=C.qdone;
+  var rows=C.qr.map(function(p,i){return {p:p,zone:i>=N,out:done&&i>=N,tag:done&&i<N?'SEMIFINAL':''};});
+  var started=C.qr.some(function(p){return played(sc(p,'q'));});
+  var h=ph('Quarterfinal \u00b7 '+C.qfp.length+' players',done)+'<p class="note">No voting. Each player attacks once. Ranked by stars, then destruction %, then faster time. '+(out>0?'Bottom '+out+' are eliminated, the top '+N+' reach the Semifinal.':'All '+N+' reach the Semifinal.')+'</p>'+stbl(rows,'q');
+  if(started&&out>0)h+=dzkey(done?'Bottom '+out+' eliminated':'Danger zone: bottom '+out+' would be eliminated');
   if(canScore())h+=entry('Enter Quarterfinal attacks',C.qfp,'q','t');
   return h;
 }
 function adminTab(C){
-  var h='<div class="sec"><h2>Publish results to everyone</h2><p class="val">Everyone else sees only the last published results, with no sign-in. Last published: '+(SNAPAT?esc(new Date(SNAPAT).toLocaleString()):'never')+'.</p><p class="val">Click <b>Publish results</b> (also at the top right of the tabs) after you update scores, and everyone sees the new results.</p><p class="val">Sharing is not included in the plan, so to give everyone a public link: click Download public page, then upload that file to a free host such as Netlify Drop or GitHub Pages. Upload a fresh file after each update.</p><div class="bar"><button class="btn pub" data-act="publish">\u2b06 Publish results</button><button class="btn" data-act="dlpub">\u2b07 Download public page (.html)</button>'+(warn?'<span class="val">'+warn+'</span>':'')+'</div></div>';
-  h+='<div class="sec"><h2>Tournament</h2><label class="fld">Title<input class="wide" id="ttl" value="'+esc(S.title)+'"></label></div>';
+  var pubSec='<div class="sec"><h2>Publish results to everyone</h2><p class="val">Everyone else sees only the last published results, with no sign-in. Last published: '+(SNAPAT?esc(new Date(SNAPAT).toLocaleString()):'never')+'.</p><p class="val">Click <b>Publish results</b> (also at the top right of the tabs) after you update scores, and everyone sees the new results.</p><p class="val">Sharing is not included in the plan, so to give everyone a public link: click Download public page, then upload that file to a free host such as Netlify Drop or GitHub Pages. Upload a fresh file after each update.</p><div class="bar"><button class="btn pub" data-act="publish">\u2b06 Publish results</button><button class="btn" data-act="dlpub">\u2b07 Download public page (.html)</button>'+(warn?'<span class="val">'+warn+'</span>':'')+'</div></div>';
+  var h='<div class="sec"><h2>Tournament</h2><label class="fld">Title<input class="wide" id="ttl" value="'+esc(S.title)+'"></label></div>';
   h+='<div class="sec"><h2>Groups / Teams</h2>'+(S.groups.length?S.groups.map(function(q){return '<div class="pg"><input class="name" data-gname="'+q.id+'" value="'+esc(q.name)+'"><span class="val">'+S.players.filter(function(p){return p.g===q.id;}).length+' players</span><button class="btn x" data-act="gdel:'+q.id+'">'+(pend==='gdel:'+q.id?'Sure?':'\u2715')+'</button></div>';}).join(''):'<p class="val">No groups yet. Add groups (Group A, Group B or team names), then pick a group for each player below. The Bracket tab will show them like the reference.</p>')+
     '<div class="bar"><button class="btn" data-act="gadd">+ Add group / team</button>'+(S.groups.length>1?'<button class="btn" data-act="gauto">Auto-assign players evenly</button>':'')+(S.groups.length?rbtn('reset:groups','Remove all groups'):'')+'</div></div>';
   h+='<div class="sec"><h2>Players ('+C.n+')</h2>'+S.players.map(function(p){return '<div class="pg"><input class="name" data-i="'+p.id+'" data-k="n" value="'+esc(p.n)+'">'+(S.groups.length?'<select data-pg="'+p.id+'"><option value="">No group</option>'+S.groups.map(function(q){return '<option value="'+q.id+'"'+(p.g===q.id?' selected':'')+'>'+esc(q.name)+'</option>';}).join('')+'</select>':'')+'<button class="btn x" data-act="rm:'+p.id+'">'+(pend==='rm:'+p.id?'Sure?':'\u2715')+'</button></div>';}).join('')+
     '<div class="bar"><button class="btn" data-act="add">+ Add player</button>'+rbtn('reset:names','Reset names')+(warn?'<span class="val">'+warn+'</span>':'')+'</div></div>';
   var opts='';for(var i=0;i<=Math.max(0,C.n-4);i++)opts+='<option value="'+i+'"'+(i===C.cut?' selected':'')+'>'+i+'</option>';
+  var semiOpts='';for(var q2=4;q2<=C.qfp.length;q2++)semiOpts+='<option value="'+q2+'"'+(q2===C.semiN?' selected':'')+'>'+q2+'</option>';
   h+='<div class="sec"><h2>Rules</h2><label class="fld">Eliminated after voting (bottom N, suggested 2 / 4 / 6)<select id="cut">'+opts+'</select></label>'+
-    '<p class="val">'+C.qfp.length+' players reach the Quarterfinal, bottom '+Math.max(0,C.qfp.length-4)+' of them are eliminated there, 4 reach the Semifinal.</p></div>';
-  var sel=function(m,s){return '<select data-pair="'+m+'-'+s+'">'+C.semis.map(function(p){var cur=(C.manual?[C.sf[m].a,C.sf[m].b][s]:null);return '<option value="'+p.id+'"'+(cur&&cur.id===p.id?' selected':'')+'>'+esc(p.n)+'</option>';}).join('')+'</select>';};
-  h+='<div class="sec"><h2>Semifinal matchups</h2><p class="val">Suggested (auto): '+C.auto.map(function(q){return nm(q[0])+' vs '+nm(q[1]);}).join(' \u00b7 ')+(C.qdone?'':' (provisional until all Quarterfinal attacks are in)')+'</p>'+
-    [0,1].map(function(m){return '<div class="pg">Match '+(m+1)+': '+sel(m,0)+' vs '+sel(m,1)+'</div>';}).join('')+
-    '<div class="bar"><button class="btn" data-act="autopairs">Use auto matchups</button><span class="val">'+(C.manual?'Manual matchups active.':'Auto matchups active.')+'</span></div></div>';
+    '<label class="fld" style="margin-top:10px">Players reaching the Semifinal (4 = two head-to-head matches, more than 4 = ranked, top 4 go on)<select id="semi">'+semiOpts+'</select></label>'+
+    '<p class="val">'+C.qfp.length+' players reach the Quarterfinal, bottom '+(C.qfp.length-C.semiN)+' are eliminated there, '+C.semiN+' reach the Semifinal'+(C.ranked?', where the bottom '+(C.semiN-4)+' are eliminated and 4 go on to the Final and 3rd place.':'.')+'</p></div>';
+  var sel=function(m,s){var cur=[C.sf[m].a,C.sf[m].b][s];return '<select data-pair="'+m+'-'+s+'"'+(C.manual?'':' disabled')+'>'+C.semis.map(function(p){return '<option value="'+p.id+'"'+(cur&&cur.id===p.id?' selected':'')+'>'+esc(p.n)+'</option>';}).join('')+'</select>';};
+  if(C.ranked)h+='<div class="sec"><h2>Semifinal matchups</h2><p class="val">Not used. The Semifinal has '+C.semiN+' players, so it is a ranked stage: the top 2 play the Final and ranks 3 and 4 play the 3rd place match.</p></div>';
+  else h+='<div class="sec"><h2>Semifinal matchups</h2><p class="val">Suggested (auto): '+C.auto.map(function(q){return nm(q[0])+' vs '+nm(q[1]);}).join(' \u00b7 ')+(C.qdone?'':' (provisional until all Quarterfinal attacks are in)')+'</p>'+
+    '<div class="bar"><button class="btn'+(C.manual?'':' pub')+'" data-act="pairstoggle">Auto matchups: '+(C.manual?'Inactive':'Active')+'</button><span class="val">'+(C.manual?'You choose the matchups below. Click the button to go back to auto.':'Matchups follow the Quarterfinal ranking. Click the button to choose them yourself.')+'</span></div>'+
+    [0,1].map(function(m){return '<div class="pg">Match '+(m+1)+': '+sel(m,0)+' vs '+sel(m,1)+'</div>';}).join('')+'</div>';
+  h+='<div class="sec"><h2>Prize pool</h2><p class="val">Shown on the Final tab. Leave a box empty to show TBD.</p>'+['1st \u00b7 Champion','2nd \u00b7 Runner-up','3rd \u00b7 2nd Runner-up'].map(function(l,i){return '<label class="fld" style="margin-bottom:8px">'+l+'<input class="wide" data-prize="'+i+'" value="'+esc(S.prizes[i]||'')+'" placeholder="For example, 3 Year Gold Pass"></label>';}).join('')+'</div>';
   h+='<div class="sec"><h2 style="color:var(--red)">Resets</h2><div class="bar">'+Object.keys(TN).map(function(k){return '<span>'+rbtn('reset:'+k,'Reset '+TN[k])+'</span>';}).join('')+'<span>'+rbtn('reset:all','Reset ALL scores')+'</span></div></div>';
+  h+=pubSec;
   h+='<div class="sec"><h2>Backup and restore</h2><p class="val">Saved backups stay with this page and you can keep many. Use Download to also keep a copy on your own device.</p>'+
     '<div class="bar"><input class="wide" id="bl" placeholder="Backup name, for example Season 2 final"><button class="btn" data-act="bk:save">Save backup</button></div>'+
     '<div class="bar"><button class="btn" data-act="bk:dlnow">Download current data (.json)</button><label class="btn">Restore from a file<input type="file" id="bf" accept=".json,application/json" hidden></label>'+(warn?'<span class="val">'+warn+'</span>':'')+'</div>';
@@ -222,12 +411,13 @@ function adminTab(C){
   return h;
 }
 function stars3(n){n=Math.max(0,Math.min(3,n|0));return '\u2605'.repeat(n)+'\u2606'.repeat(3-n);}
+function bsub2(p){var t=g(p,'r1s')+g(p,'r2s'),d=g(p,'r1d')+g(p,'r2d');return '<div class="bsub2"><span>'+starsN(t,6)+'</span><span>'+(+d.toFixed(1))+'%</span></div>';}
 function brTab(C){
   var r2done=S.players.some(function(p){return rp(p,2);}),qstart=C.qr.some(function(p){return played(sc(p,'q'));});
   var elim={};if(r2done)C.vr.slice(C.n-C.cut).forEach(function(p){elim[p.id]=1;});
   function seed(p){if(!p)return '\u2013';for(var i=0;i<C.qr.length;i++)if(C.qr[i].id===p.id)return '#'+(i+1);return '\u2013';}
   function km(label,m,fin){
-    var row=function(p){if(!p)return '<div class="ks tbd"><span class="sd">\u2013</span><span class="kn">TBD</span></div>';var win=m.w&&m.w.id===p.id,cl=m.w?(win?' win':' lose'):'';return '<div class="ks'+cl+'"><span class="sd">'+seed(p)+'</span><span class="kn">'+esc(p.n)+'</span>'+(win?'<span class="ck">\u2713</span>':'')+'</div>';};
+    var row=function(p){if(!p)return '<div class="ks tbd"><span class="sd">\u2013</span><span class="kn">TBD</span></div>';var win=m.w&&m.w.id===p.id,cl=m.w?(win?' win':' lose'):'',q=m.x?sc(p,m.x):{s:0,d:0,t:0};return '<div class="ks'+cl+'"><span class="sd">'+seed(p)+'</span><span class="kn">'+esc(p.n)+'</span>'+(win?'<span class="ck">\u2713</span>':'')+(played(q)?'<span class="ksc">'+stars3(q.s)+' '+q.d+'%</span>':'')+'</div>';};
     return '<div class="km'+(fin?' kf':'')+'"><div class="kl">'+label+'</div>'+row(m.a)+row(m.b)+'</div>';
   }
   var bk=[];
@@ -239,9 +429,11 @@ function brTab(C){
   var h='<div class="panel-head"><h2>Tournament bracket</h2><div class="legend">'+leg+'<span class="x">Eliminated</span></div></div>'+
     '<p class="note">Groups are ranked by votes over the two rounds. From the Quarterfinal on there is no voting: players are ranked, and matches won, on stars, then destruction, then time. Names in red are eliminated.</p>'+
     '<div class="bracket"><div class="bk">';
-  bk.forEach(function(b,i){h+=at(i+1,1,'<div class="bcol"><h3>'+esc(b.name)+'<small>'+b.list.length+' players</small></h3>'+b.list.map(function(p){return '<div class="bslot'+(elim[p.id]?' x':'')+'" style="border-left-color:'+gcol(p)+'"><span>'+esc(p.n)+'</span><em>'+st(p,[1,2]).v+'</em></div>';}).join('')+'</div>');});
-  h+=at(span,2,'<div class="bcol"><h3>Quarterfinal<small>'+C.qfp.length+' players</small></h3>'+C.qr.map(function(p,i){var q=sc(p,'q'),pl=played(q);return '<div class="bslot'+(qstart&&i>=4?' x dz':'')+'" style="border-left-color:'+gcol(p)+'"><span>'+esc(p.n)+'</span><em>'+(pl?stars3(q.s)+' '+q.d+'%':'\u2013')+'</em></div>';}).join('')+'</div>');
-  h+=at(span,3,'<div class="bcol"><h3>Semifinal<small>4 players</small></h3>'+C.sf.map(function(m,k){return km('Match '+(k+1),m);}).join('')+'</div>');
+  bk.forEach(function(b,i){h+=at(i+1,1,'<div class="bcol"><h3>'+esc(b.name)+'<small>'+b.list.length+' players</small></h3>'+b.list.map(function(p){return '<div class="bslot'+(elim[p.id]?' x':'')+'" style="border-left-color:'+gcol(p)+'"><span>'+esc(p.n)+'</span><em>'+st(p,[1,2]).v+'</em>'+bsub2(p)+'</div>';}).join('')+'</div>');});
+  h+=at(span,2,'<div class="bcol"><h3>Quarterfinal<small>'+C.qfp.length+' players</small></h3>'+C.qr.map(function(p,i){var q=sc(p,'q'),pl=played(q);return '<div class="bslot nw'+(qstart&&i>=C.semiN?' x dz':'')+'" style="border-left-color:'+gcol(p)+'"><span>'+esc(p.n)+'</span><em>'+(pl?stars3(q.s)+' '+q.d+'%':'\u2013')+'</em></div>';}).join('')+'</div>');
+  var sstart=C.sfr.some(function(z){return played(sc(z,'a'));});
+  var semiH=C.ranked?C.sfr.map(function(p,i){var q=sc(p,'a'),pl=played(q);return '<div class="bslot nw'+(sstart&&i>=4?' x dz':'')+'" style="border-left-color:'+gcol(p)+'"><span>'+esc(p.n)+'</span><em>'+(pl?stars3(q.s)+' '+q.d+'%':'\u2013')+'</em></div>';}).join(''):C.sf.map(function(m,k){return km('Match '+(k+1),m);}).join('');
+  h+=at(span,3,'<div class="bcol"><h3>Semifinal<small>'+C.semiN+' players</small></h3>'+semiH+'</div>');
   h+=at(span,4,'<div class="bcol"><h3>Grand Final<small>2 players</small></h3>'+km('3rd place match',C.tp)+C.G.map(function(m,k){return km('Final match '+(k+1),m,true);}).join('')+'</div>');
   h+=at(span,5,'<div class="bcol"><h3>Champion</h3><div class="prize m1"><span class="pl">Champion</span><b>'+nm(C.champ)+'</b></div><div class="prize m2"><span class="pl">Runner-up</span><b>'+nm(C.ru)+'</b></div><div class="prize m3"><span class="pl">2nd Runner-up</span><b>'+nm(C.third)+'</b></div></div>');
   return h+'</div></div>';
@@ -249,23 +441,21 @@ function brTab(C){
 function render(){
   norm();document.getElementById('head').textContent=S.title;
   var T=[['r1','Round 1'],['r2','Round 2'],['qf','Quarterfinal'],['sf','Semifinal'],['tp','3rd Place'],['f','Final'],['br','Bracket']];
-  if(admin)T.unshift(['ad','Admin']);
+  if(admin){T.unshift(['pi','Player/team info']);T.unshift(['ad','Admin']);}
   document.getElementById('tabs').innerHTML=T.map(function(t){return '<button class="tab'+(tab===t[0]?' on':'')+'" data-tab="'+t[0]+'">'+t[1]+'</button>';}).join('')+(admin?'<button class="btn pub" data-act="publish">\u2b06 Publish results</button>':'');
-  var C=calc(),h='',rule='Winner = more stars, then destruction %, then faster time.';
+  var C=CUR=calc(),h='',rule='Winner = more stars, then destruction %, then faster time.';
   if(tab==='ad'&&admin)h=adminTab(C);
+  else if(tab==='pi'&&admin)h=piTab();
   else if(tab==='r1')h=roundTab([1],C);
   else if(tab==='r2')h=roundTab([1,2],C);
   else if(tab==='qf')h=qfTab(C);
-  else if(tab==='sf'){h='<p class="note">Semifinal \u00b7 '+(C.manual?'manual':'auto')+' matchups. '+rule+(C.qdone?'':' Field is provisional until all Quarterfinal attacks are in.')+'</p>';C.sf.forEach(function(m,k){h+=card('SEMIFINAL '+(k+1),m,'a');});}
-  else if(tab==='tp')h='<p class="note">3rd Place match \u00b7 the two semifinal losers. '+rule+'</p>'+card('3RD PLACE MATCH',C.tp,'b');
-  else if(tab==='f'){
-    h='<p class="note">Final \u00b7 3 matches between the two semifinal winners. Champion = most matches won, then total stars, then total destruction %, then lower total time.</p>';
-    if(C.A)[[C.fa,C.A],[C.fb,C.B]].forEach(function(z){h+='<div class="row '+(C.champ&&C.champ.id===z[0].id?'adv':'')+'"><span class="nm">'+esc(z[0].n)+'</span><span class="val">'+z[1].w+'W \u00b7 '+z[1].s+'\u2605 \u00b7 '+z[1].d+'% \u00b7 '+fmt(z[1].t)+'</span></div>';});
-    C.G.forEach(function(m,k){h+=card('FINAL MATCH '+(k+1),m,m.x);});
-    h+='<div style="margin-top:16px">'+pod(C)+'</div>';
-  } else { h=brTab(C); }
+  else if(tab==='sf')h=sfTab(C);
+  else if(tab==='tp')h=tpTab(C);
+  else if(tab==='f')h=finalTab(C);
+  else { h=brTab(C); }
   var v=document.getElementById('view'),ae=document.activeElement,keep=ae&&ae.id==='bl'?ae.value:null;
-  v.className='panel'+(tab==='br'?' rbk':'');
+  v.className='panel'+(tab==='br'?' rbk':'')+(tab==='sf'||tab==='tp'||tab==='f'?' hl':'');
+  var wp=document.getElementById('wrap');if(wp)wp.className='wrap'+(tab==='br'||tab==='pi'?' wide':'');
   v.innerHTML=bar()+h+foot();
   if(keep!==null&&document.getElementById('bl'))document.getElementById('bl').value=keep;
   document.getElementById('live').innerHTML=canScore()?'<b>\u25cf LIVE</b>RESULTS UPDATE AUTOMATICALLY AS EACH SCORE IS ENTERED.':'<b>\u25cf</b>RESULTS ARE UPDATED BY THE ORGANIZER AFTER EACH STAGE.';
@@ -292,7 +482,8 @@ function save(){
   Object.keys(x.sc).forEach(function(id){var js=stab(x.sc[id]);if(LW[id]!==js){LW[id]=js;db.doc('scores/'+id).set(x.sc[id]).catch(function(){if(!admin){denied=true;render();}});}});
   if(admin)Object.keys(LW).forEach(function(id){if(!x.sc[id]){delete LW[id];db.doc('scores/'+id).delete().catch(function(){});}});
 }
-var NOCONF={add:1,undo:1,autopairs:1,gadd:1,gauto:1,'bk:save':1,'bk:dlnow':1,publish:1,dlpub:1};
+document.addEventListener('wheel',function(){var a=document.activeElement;if(a&&a.type==='number')a.blur();},{passive:true});
+var NOCONF={copyem:1,csv:1,pairstoggle:1,add:1,undo:1,autopairs:1,gadd:1,gauto:1,'bk:save':1,'bk:dlnow':1,publish:1,dlpub:1};
 document.addEventListener('click',function(e){
   var t=e.target.closest('[data-tab]');if(t){tab=t.dataset.tab;pend=null;warn='';render();return;}
   var b=e.target.closest('[data-act]');if(!b||!admin||b.disabled)return;
@@ -302,12 +493,14 @@ document.addEventListener('click',function(e){
   clearTimeout(tm);pend=null;
   if(a==='publish'){publishNow();return;}
   if(a==='dlpub'){downloadPublic();return;}
+  if(a==='csv'){downloadCsv();return;}
+  if(a==='copyem'){copyEmails();return;}
   if(a==='undo'){if(U.length){S=JSON.parse(U.pop());save();}}
-  else if(a==='bk:save'){var l=document.getElementById('bl');if(db)db.collection('backups').add({label:l&&l.value||'Backup',at:Date.now(),state:JSON.stringify(S)}).catch(function(){warn='Backup failed.';render();});}
-  else if(a.indexOf('bk:restore:')===0){var bk=BK.filter(function(x){return x.id===a.slice(11);})[0];if(bk){pushU();S=JSON.parse(bk.state);save();}}
+  else if(a==='bk:save'){var l=document.getElementById('bl');if(db)db.collection('backups').add({label:l&&l.value||'Backup',at:Date.now(),state:JSON.stringify(S),contacts:JSON.stringify(CT)}).catch(function(){warn='Backup failed.';render();});}
+  else if(a.indexOf('bk:restore:')===0){var bk=BK.filter(function(x){return x.id===a.slice(11);})[0];if(bk){pushU();S=JSON.parse(bk.state);save();if(bk.contacts){try{setContacts(JSON.parse(bk.contacts));}catch(x){}}}}
   else if(a.indexOf('bk:del:')===0){if(db)db.collection('backups').doc(a.slice(7)).delete().catch(function(){});}
-  else if(a==='bk:dlnow'){dlfile('current',S);}
-  else if(a.indexOf('bk:dl:')===0){var bd=BK.filter(function(x){return x.id===a.slice(6);})[0];if(bd){try{dlfile(bd.label,JSON.parse(bd.state));}catch(x){}}}
+  else if(a==='bk:dlnow'){dlfile('current',S,CT);}
+  else if(a.indexOf('bk:dl:')===0){var bd=BK.filter(function(x){return x.id===a.slice(6);})[0];if(bd){try{dlfile(bd.label,JSON.parse(bd.state),bd.contacts?JSON.parse(bd.contacts):null);}catch(x){}}}
   else if(a==='gadd'){pushU();S.groups.push({id:'g'+(S.nid++),name:'Group '+String.fromCharCode(65+S.groups.length%26)});save();}
   else if(a.indexOf('gdel:')===0){pushU();var gid=a.slice(5);S.groups=S.groups.filter(function(q){return q.id!==gid;});S.players.forEach(function(p){if(p.g===gid)delete p.g;});save();}
   else if(a==='gauto'){pushU();S.players.forEach(function(p,i){p.g=S.groups[i%S.groups.length].id;});save();}
@@ -315,6 +508,7 @@ document.addEventListener('click',function(e){
   else if(a==='add'){pushU();var id='p'+(S.nid++);S.players.push({id:id,n:'Player '+(S.players.length+1)});save();}
   else if(a.indexOf('rm:')===0){pushU();S.players=S.players.filter(function(p){return p.id!==a.slice(3);});S.pairs=null;save();}
   else if(a==='autopairs'){pushU();S.pairs=null;save();}
+  else if(a==='pairstoggle'){pushU();var C0=calc();if(C0.manual){S.pairs=null;}else{var pp=C0.auto.map(function(q){return q.map(function(x){return x&&x.id;});});S.pairs=pp.every(function(q){return q[0]&&q[1];})?pp:null;}save();}
   else if(a==='reset:names'){pushU();S.players.forEach(function(p,i){p.n='Player '+(i+1);});save();}
   else if(a.indexOf('reset:')===0){pushU();var k=a.slice(6);var keys=k==='all'?[].concat.apply([],Object.keys(RK).map(function(z){return RK[z];})):RK[k];clearKeys(keys);if(k==='all'||k==='qf'||k==='r1'||k==='r2')S.pairs=null;save();}
   render();
@@ -322,12 +516,17 @@ document.addEventListener('click',function(e){
 document.addEventListener('change',function(e){
   var el=e.target;
   if(!canScore())return;
-  if(!admin&&(el.id==='ttl'||el.id==='cut'||el.id==='bf'||el.dataset.pair||el.dataset.gname||el.dataset.pg))return;
+  if(!admin&&(el.id==='ttl'||el.id==='cut'||el.id==='semi'||el.id==='bf'||el.dataset.pair||el.dataset.gname||el.dataset.pg))return;
+  if(el.id==='ms'){MS=el.value;render();return;}
+  if(el.id==='mb'){MB=el.value;render();return;}
+  if(el.dataset.ct!==undefined){if(!admin)return;var cid=el.dataset.ct;CT[cid]=CT[cid]||{};CT[cid][el.dataset.k]=el.value;if(db)db.doc('contacts/'+cid).set(CT[cid]).catch(function(){warn='Could not save contact info.';render();});render();return;}
+  if(el.dataset.prize!==undefined){if(!admin)return;S.prizes[+el.dataset.prize]=el.value;save();render();return;}
   if(el.id==='ttl'){S.title=el.value;save();render();return;}
+  if(el.id==='semi'){pushU();S.semiN=+el.value;S.pairs=null;save();render();return;}
   if(el.id==='cut'){pushU();S.cutVote=+el.value;S.pairs=null;save();render();return;}
   if(el.dataset.gname){var q=S.groups.filter(function(x){return x.id===el.dataset.gname;})[0];if(q){q.name=el.value||q.name;save();}render();return;}
   if(el.dataset.pg){var pp=byId(el.dataset.pg);if(pp){if(el.value)pp.g=el.value;else delete pp.g;save();}render();return;}
-  if(el.id==='bf'){var fl=el.files&&el.files[0];if(!fl)return;var rd=new FileReader();rd.onload=function(){try{var o=JSON.parse(rd.result),stt=o.state||o;if(typeof stt==='string')stt=JSON.parse(stt);if(!stt||!stt.players)throw 0;pushU();S=stt;save();warn='';}catch(x){warn='This file is not a valid backup.';}render();};rd.readAsText(fl);el.value='';return;}
+  if(el.id==='bf'){var fl=el.files&&el.files[0];if(!fl)return;var rd=new FileReader();rd.onload=function(){try{var o=JSON.parse(rd.result),stt=o.state||o;if(typeof stt==='string')stt=JSON.parse(stt);if(!stt||!stt.players)throw 0;pushU();S=stt;save();if(o.contacts&&typeof o.contacts==='object')setContacts(o.contacts);warn='';}catch(x){warn='This file is not a valid backup.';}render();};rd.readAsText(fl);el.value='';return;}
   if(el.dataset.pair){var sel=[].slice.call(document.querySelectorAll('[data-pair]')).map(function(x){return x.value;});
     if(new Set(sel).size===4){S.pairs=[[sel[0],sel[1]],[sel[2],sel[3]]];save();warn='';}else{warn='Pick 4 different players.';}
     render();return;}
@@ -344,7 +543,8 @@ document.addEventListener('change',function(e){
   if(db&&(admin||scorer)){
     db.doc('tracker/state').onSnapshot(function(sn){if(sn.exists){RAW.state=JSON.parse(JSON.stringify(sn.data()));rebuild();}render();},function(){render();});
     db.collection('scores').onSnapshot(function(q){RAW.scores={};q.docs.forEach(function(d){RAW.scores[d.id]=JSON.parse(JSON.stringify(d.data()));});rebuild();render();},function(){});
-    if(admin)db.collection('backups').orderBy('at','desc').limit(100).onSnapshot(function(q){BK=q.docs.map(function(d){var x=d.data();return {id:d.id,label:x.label,at:x.at,state:x.state};});render();},function(){});
+    if(admin)db.collection('contacts').onSnapshot(function(q){CT={};q.docs.forEach(function(d){CT[d.id]=JSON.parse(JSON.stringify(d.data()));});render();},function(){});
+    if(admin)db.collection('backups').orderBy('at','desc').limit(100).onSnapshot(function(q){BK=q.docs.map(function(d){var x=d.data();return {id:d.id,label:x.label,at:x.at,state:x.state,contacts:x.contacts};});render();},function(){});
   }
   render();
 })();
